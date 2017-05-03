@@ -14,10 +14,10 @@ import json
 beseda_ID = 12345
 
 #Правильное название беседы
-beseda_name = 'Правильное имя'
+beseda_name = 'Идеальное название беседы'
 
 #Индификатор приложения в ВК
-APP_ID = 12345
+APP_ID = 6011847
 # file, where auth data is saved
 AUTH_FILE = '.auth_data'
 # chars to exclude from filename
@@ -73,15 +73,15 @@ def main():
 
 def change_name(api, chat_id, title, **kwargs):
     data_dict = {
-        'chat_id': beseda_name,
-        'title': beseda_ID,
+        'chat_id': beseda_ID,
+        'title': beseda_name,
     }
     data_dict.update(**kwargs)
     return api.messages.editChat(**data_dict)
 
 def get_info(api, chat_id, **kwargs):
     data_dict = {
-        'chat_id': beseda_name,
+        'chat_id': beseda_ID,
     }
     data_dict.update(**kwargs)
     return api.messages.getChat(**data_dict)
@@ -94,12 +94,12 @@ def main():
     api = get_api(access_token)
 
  
-    res = get_info(api, beseda_name)
+    res = get_info(api, beseda_ID)
     time.sleep(1)
     title = res['title']
     if title!=beseda_ID:
         print (title)
-        change_name(api, beseda_name, beseda_ID)
+        change_name(api, beseda_ID, beseda_name)
 
 
 while True:
