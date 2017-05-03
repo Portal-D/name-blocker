@@ -97,7 +97,7 @@ def main():
     res = get_info(api, beseda_ID)
     time.sleep(1)
     title = res['title']
-    if title!=beseda_ID:
+    if title!=beseda_name:
         print (title)
         change_name(api, beseda_ID, beseda_name)
 
